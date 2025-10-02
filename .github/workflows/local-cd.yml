@@ -15,11 +15,6 @@ jobs:
       - name: Build Docker image
         run: docker build -t myapp .
 
-      - name: delete container if exists
-        run: |
-            docker stop myapp || true
-            docker rm myapp || true
-
       - name: Run container
         run: docker run -d -p 8080:80 --name myapp myapp
 
